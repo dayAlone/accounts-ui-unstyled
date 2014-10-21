@@ -8,24 +8,19 @@
     </a>
 
     {{#if dropdownVisible}}
-      <div id="login-dropdown-list" class="accounts-dialog popover">
-        <div class="popover-inner">
-          <div class="popover-title">
-            <a class="profileLink" href="/user/{{displayName}}">My Profile</a>
-            <a class="login-close-text">Close</a>
-          </div>
-          <div class="popover-content">
-            {{#if inMessageOnlyFlow}}
-              {{> _loginButtonsMessages}}
-            {{else}}
-              {{#if inChangePasswordFlow}}
-                {{> _loginButtonsChangePassword}}
-              {{else}}
-                {{> _loginButtonsLoggedInDropdownActions}}
-              {{/if}}
-            {{/if}}
-          </div>
-        </div>
+      <div id="login-dropdown-list" class="accounts-dialog">
+        <a class="login-close-text">Close</a>
+        <div class="login-close-text-clear"></div>
+
+        {{#if inMessageOnlyFlow}}
+          {{> _loginButtonsMessages}}
+        {{else}}
+          {{#if inChangePasswordFlow}}
+            {{> _loginButtonsChangePassword}}
+          {{else}}
+            {{> _loginButtonsLoggedInDropdownActions}}
+          {{/if}}
+        {{/if}}
       </div>
     {{/if}}
   </div>
@@ -33,12 +28,12 @@
 
 <template name="_loginButtonsLoggedInDropdownActions">
   {{#if allowChangingPassword}}
-    <div class="btn" id="login-buttons-open-change-password">
+    <div class="login-button" id="login-buttons-open-change-password">
       Change password
     </div>
   {{/if}}
 
-  <div class="btn" id="login-buttons-logout">
+  <div class="login-button" id="login-buttons-logout">
     Sign out
   </div>
 
@@ -109,7 +104,7 @@
 
       {{> _loginButtonsMessages}}
 
-      <div class="btn btn-primary login-button-form-submit" id="login-buttons-password">
+      <div class="login-button login-button-form-submit" id="login-buttons-password">
         {{#if inSignupFlow}}
           Create account
         {{else}}
@@ -147,7 +142,7 @@
 
     {{> _loginButtonsMessages}}
 
-    <div class="btn login-button-form-submit" id="login-buttons-forgot-password">
+    <div class="login-button login-button-form-submit" id="login-buttons-forgot-password">
       Reset password
     </div>
 
@@ -199,7 +194,7 @@ https://gist.github.com/968927
 
   {{> _loginButtonsMessages}}
 
-  <div class="btn login-button-form-submit" id="login-buttons-do-change-password">
+  <div class="login-button login-button-form-submit" id="login-buttons-do-change-password">
     Change password
   </div>
 </template>
